@@ -160,6 +160,10 @@ export async function generate(name: string, outputFilePath: string, npmPackageN
   const maticNetworks = [
     {
       chainId: 137,
+      name: "polygon"
+    },
+    {
+      chainId: 137,
       name: "matic",
     },
     {
