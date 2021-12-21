@@ -197,9 +197,22 @@ export async function generate(name: string, outputFilePath: string, npmPackageN
       hardhatNetworkName: 'celoTestnet'
     }
   ]
+  
+  const avalancheNetworks = [
+    {
+      chainId: 43114,
+      name: "Avalanche",
+      hardhatNetworkName: 'avalanche'
+    },
+    {
+      chainId: 43113,
+      name: 'Fuji',
+      hardhatNetworkName: 'fuji'
+    }
+  ]
 
   // @ts-ignore
-  const allNetworks = ethereumNetworks.concat(xDaiNetworks).concat(maticNetworks).concat(binanceNetworks).concat(celoNetworks)
+  const allNetworks = ethereumNetworks.concat(xDaiNetworks).concat(maticNetworks).concat(binanceNetworks).concat(celoNetworks).concat(avalancheNetworks)
 
   function buildNetworkDeployments(
     npmPackageName: string,
