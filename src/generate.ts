@@ -26,6 +26,10 @@ function formatAddressUrl(network: any, address: string) {
     url = `https://explorer.celo.org/address/${address}`
   } else if (chainId == 44787) {
     url = `https://alfajores-blockscout.celo-testnet.org/address/${address}`
+  } else if (chainId == 43113) {
+    url = `https://testnet.snowtrace.io/address/${address}`
+  } else if (chainId == 43114) {
+    url = `https://snowtrace.io/address/${address}`
   } else {
     url = `https://${name}.etherscan.io/address/${address}`
   }
@@ -40,10 +44,10 @@ function formatDeployments(npmPackageName: string, network: any, githubBaseUrl: 
   }
 
   const hardhatNetworkName = network.hardhatNetworkName || network.name
-  
+
   const deploymentsDirectory = `${projectRoot}/deployments/${hardhatNetworkName}`
   const deploymentsDirectoryWithChainId = `${projectRoot}/deployments/${hardhatNetworkName}_${network.chainId}`
-  
+
   let contractPaths
   if (fs.existsSync(deploymentsDirectory)) {
     contractPaths = glob.sync(`${deploymentsDirectory}/*.json`)
@@ -58,14 +62,14 @@ function formatDeployments(npmPackageName: string, network: any, githubBaseUrl: 
 
     const contract = JSON.parse(fs.readFileSync(contractPath))
     const contractName = path.basename(contractPath, ".json")
-      
+
     console.log(chalk.dim(`Found contract ${contractName}...`))
 
     let contractLink
 
     if(fs.existsSync(`${projectRoot}/contracts`)){
       const solidityFilepaths = find.fileSync(`${contractName}.sol`, `${projectRoot}/contracts`)
-      
+
       if (solidityFilepaths.length > 0) {
         const solidityFilePath = solidityFilepaths[0].split("/contracts")[1]
         contractLink = `[${contractName}](${githubBaseUrl}/contracts${solidityFilePath})`
@@ -107,10 +111,10 @@ async function generateBlockchainNetworks(
   append(outputFile, ``)
   append(outputFile, `# ${name}`)
   append(outputFile, ``)
-  
+
   for (let ni = 0; ni < networkDeployments.length; ni++) {
     const { network, deployments } = networkDeployments[ni];
-    
+
     if (deployments.length > 0) {
       console.log(chalk.yellow(`Generating network ${network.name}...`));
       append(outputFile, `## ${capitalizeFirstLetter(network.name)}`);
@@ -197,7 +201,7 @@ export async function generate(name: string, outputFilePath: string, npmPackageN
       hardhatNetworkName: 'celoTestnet'
     }
   ]
-  
+
   const avalancheNetworks = [
     {
       chainId: 43114,
@@ -237,7 +241,7 @@ export async function generate(name: string, outputFilePath: string, npmPackageN
     githubBaseUrl,
     '.'
   )
-  
+
   await generateBlockchainNetworks(
     name,
     networkDeployments,
