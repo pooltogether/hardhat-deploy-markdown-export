@@ -10,30 +10,30 @@ function formatAddressUrl(network: any, address: string) {
   let url;
   if (chainId == 1) {
     url = `https://etherscan.io/address/${address}`;
-  } else if (chainId === 56) {
+  } else if (chainId == 56) {
     url = `https://bscscan.com/address/${address}`;
-  } else if (chainId === 77) {
+  } else if (chainId == 77) {
     url = `https://blockscout.com/poa/sokol/address/${address}`;
-  } else if (chainId === 97) {
+  } else if (chainId == 97) {
     url = `https://testnet.bscscan.com/address/${address}`;
-  } else if (chainId === 100) {
+  } else if (chainId == 100) {
     url = `https://blockscout.com/xdai/mainnet/address/${address}`;
-  } else if (chainId === 137) {
+  } else if (chainId == 137) {
     url = `https://explorer-mainnet.maticvigil.com/address/${address}`;
-  } else if (chainId === 80001) {
+  } else if (chainId == 80001) {
     url = `https://explorer-mumbai.maticvigil.com/address/${address}`;
-  } else if (chainId === 42220) {
+  } else if (chainId == 42220) {
     url = `https://explorer.celo.org/address/${address}`;
-  } else if (chainId === 44787) {
+  } else if (chainId == 44787) {
     url = `https://alfajores-blockscout.celo-testnet.org/address/${address}`;
-  } else if (chainId === 43113) {
+  } else if (chainId == 43113) {
     url = `https://testnet.snowtrace.io/address/${address}`;
-  } else if (chainId === 43114) {
+  } else if (chainId == 43114) {
     url = `https://snowtrace.io/address/${address}`;
-  } else if (chainId === 10) {
-    url = `https://optimistic.etherscan.io/${address}`;
-  } else if (chainId === 69) {
-    url = `https://kovan-optimistic.etherscan.io/${address}`;
+  } else if (chainId == 10) {
+    url = `https://optimistic.etherscan.io/address/${address}`;
+  } else if (chainId == 69) {
+    url = `https://kovan-optimistic.etherscan.io/address/${address}`;
   } else {
     url = `https://${name}.etherscan.io/address/${address}`;
   }
