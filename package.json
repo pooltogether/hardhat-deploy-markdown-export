@@ -1,6 +1,6 @@
 {
   "name": "@pooltogether/hardhat-deploy-markdown-export",
-  "version": "0.2.1",
+  "version": "0.3.1",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -11,21 +11,20 @@
   "engines": {
     "node": ">=10"
   },
+  "browser": {
+    "fs": false
+  },
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint",
+    "format": "prettier --write \"**/*.{ts,js}\"",
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why"
   },
   "peerDependencies": {},
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
   "prettier": {
     "printWidth": 80,
     "semi": true,
@@ -37,16 +36,23 @@
   "size-limit": [
     {
       "path": "dist/hardhat-deploy-markdown-export.cjs.production.min.js",
-      "limit": "10 KB"
+      "limit": "50 KB",
+      "ignore": [
+        "fs"
+      ]
     },
     {
       "path": "dist/hardhat-deploy-markdown-export.esm.js",
-      "limit": "10 KB"
+      "limit": "50 KB",
+      "ignore": [
+        "fs"
+      ]
     }
   ],
   "devDependencies": {
     "@size-limit/preset-small-lib": "^5.0.5",
-    "husky": "^7.0.2",
+    "find": "0.3.0",
+    "husky": "8.0.1",
     "size-limit": "^5.0.5",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
