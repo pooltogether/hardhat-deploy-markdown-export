@@ -8,7 +8,7 @@ function formatAddressUrl(network: any, address: string) {
   const { chainId, name } = network;
 
   let url;
-  if (chainId === 1) {
+  if (chainId == 1) {
     url = `https://etherscan.io/address/${address}`;
   } else if (chainId === 56) {
     url = `https://bscscan.com/address/${address}`;
