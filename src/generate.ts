@@ -30,6 +30,10 @@ function formatAddressUrl(network: any, address: string) {
     url = `https://testnet.snowtrace.io/address/${address}`
   } else if (chainId == 43114) {
     url = `https://snowtrace.io/address/${address}`
+  } else if (chainId == 10) {
+    url = `https://optimistic.etherscan.io/${address}`
+  } else if (chainId == 69) {
+    url = `https://kovan-optimistic.etherscan.io/${address}`
   } else {
     url = `https://${name}.etherscan.io/address/${address}`
   }
@@ -200,7 +204,7 @@ export async function generate(name: string, outputFilePath: string, npmPackageN
       name: 'Alfajores',
       hardhatNetworkName: 'celoTestnet'
     }
-  ]
+  ];
 
   const avalancheNetworks = [
     {
@@ -213,10 +217,22 @@ export async function generate(name: string, outputFilePath: string, npmPackageN
       name: 'Fuji',
       hardhatNetworkName: 'fuji'
     }
-  ]
+  ];
 
-  // @ts-ignore
-  const allNetworks = ethereumNetworks.concat(xDaiNetworks).concat(maticNetworks).concat(binanceNetworks).concat(celoNetworks).concat(avalancheNetworks)
+  const optimismNetworks = [
+    {
+      chainId: 10,
+      name: "Optimism",
+      hardhatNetworkName: 'optimism'
+    },
+    {
+      chainId: 69,
+      name: 'Optimism Kovan',
+      hardhatNetworkName: 'optimism-kovan'
+    }
+  ];
+
+  const allNetworks = [...ethereumNetworks, ...xDaiNetworks, ...maticNetworks, ...binanceNetworks, ...celoNetworks, ...avalancheNetworks, ...optimismNetworks];
 
   function buildNetworkDeployments(
     npmPackageName: string,
