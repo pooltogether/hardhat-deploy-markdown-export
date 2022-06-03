@@ -246,7 +246,7 @@ export async function generate(
     {
       chainId: 69,
       name: 'Optimism Kovan',
-      hardhatNetworkName: 'optimism-kovan',
+      hardhatNetworkName: 'optimismkovan',
     },
   ];
 
