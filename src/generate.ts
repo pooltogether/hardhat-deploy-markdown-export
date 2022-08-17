@@ -32,8 +32,8 @@ function formatAddressUrl(network: any, address: string) {
     url = `https://snowtrace.io/address/${address}`;
   } else if (chainId == 10) {
     url = `https://optimistic.etherscan.io/address/${address}`;
-  } else if (chainId == 69) {
-    url = `https://kovan-optimistic.etherscan.io/address/${address}`;
+  } else if (chainId == 420) {
+    url = `https://blockscout.com/optimism/goerli/address/${address}`;
   } else {
     url = `https://${name}.etherscan.io/address/${address}`;
   }
@@ -161,12 +161,8 @@ export async function generate(
       name: 'mainnet',
     },
     {
-      chainId: '4',
-      name: 'rinkeby',
-    },
-    {
-      chainId: '42',
-      name: 'kovan',
+      chainId: '5',
+      name: 'goerli',
     },
   ];
 
@@ -244,9 +240,9 @@ export async function generate(
       hardhatNetworkName: 'optimism',
     },
     {
-      chainId: 69,
-      name: 'Optimism Kovan',
-      hardhatNetworkName: 'optimismkovan',
+      chainId: 420,
+      name: 'Optimism Goerli',
+      hardhatNetworkName: 'optimismGoerli',
     },
   ];
 
