@@ -34,6 +34,8 @@ function formatAddressUrl(network: any, address: string) {
     url = `https://optimistic.etherscan.io/address/${address}`;
   } else if (chainId == 420) {
     url = `https://blockscout.com/optimism/goerli/address/${address}`;
+  } else if (chainId == 421613) {
+    url = `https://goerli-rollup-explorer.arbitrum.io/address/${address}`;
   } else {
     url = `https://${name}.etherscan.io/address/${address}`;
   }
@@ -246,6 +248,19 @@ export async function generate(
     },
   ];
 
+  const arbitrumNetworks = [
+    {
+      chainId: 42161,
+      name: 'Arbitrum',
+      hardhatNetworkName: 'arbitrum',
+    },
+    {
+      chainId: 421613,
+      name: 'Arbitrum Goerli',
+      hardhatNetworkName: 'arbitrumGoerli',
+    },
+  ];
+
   const allNetworks = [
     ...ethereumNetworks,
     ...xDaiNetworks,
@@ -254,6 +269,7 @@ export async function generate(
     ...celoNetworks,
     ...avalancheNetworks,
     ...optimismNetworks,
+    ...arbitrumNetworks,
   ];
 
   function buildNetworkDeployments(
