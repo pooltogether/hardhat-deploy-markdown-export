@@ -33,9 +33,9 @@ function formatAddressUrl(network: any, address: string) {
   } else if (chainId == 10) {
     url = `https://optimistic.etherscan.io/address/${address}`;
   } else if (chainId == 420) {
-    url = `https://blockscout.com/optimism/goerli/address/${address}`;
+    url = `https://goerli-optimism.etherscan.io/address/${address}`;
   } else if (chainId == 421613) {
-    url = `https://goerli-rollup-explorer.arbitrum.io/address/${address}`;
+    url = `https://goerli.arbiscan.io/address/${address}`;
   } else {
     url = `https://${name}.etherscan.io/address/${address}`;
   }
